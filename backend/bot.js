@@ -4,7 +4,7 @@ const { Client, GatewayIntentBits, Partials } = require('discord.js');
 const fetch = require('node-fetch');
 
 const TOKEN = process.env.DISCORD_BOT_TOKEN;
-const BACKEND = process.env.BACKEND_API_URL || 'http://localhost:5000';
+const BACKEND = 'https://test-web-alpha-tawny.vercel.app';
 
 if (!TOKEN) {
   console.error('DISCORD_BOT_TOKEN is not set in environment. Exiting.');
@@ -44,3 +44,4 @@ client.login(TOKEN).catch(err => {
   console.error('Failed to login bot:', err);
   process.exit(1);
 });
+
