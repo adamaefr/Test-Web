@@ -1,125 +1,122 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جاري تسجيل الدخول...</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg: #1c1f26;
-            --text: #e7f0ff;
-            --brand: #7289da;
-            --accent: #80ffd7;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(180deg, var(--bg), #05070a);
-            color: var(--text);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            padding: 40px;
-        }
-
-        .loader {
-            width: 60px;
-            height: 60px;
-            border: 6px solid rgba(122, 162, 255, 0.3);
-            border-top-color: var(--brand);
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto 30px;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-
-        h1 {
-            font-size: 28px;
-            margin-bottom: 12px;
-            background: linear-gradient(135deg, var(--brand), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        p {
-            color: var(--text);
-            opacity: 0.8;
-            font-size: 18px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>جاري تسجيل الدخول...</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #1c1f26;
+      --text: #e7f0ff;
+      --brand: #7289da;
+      --accent: #80ffd7;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(180deg, var(--bg), #05070a);
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+    .container {
+      text-align: center;
+      padding: 40px;
+    }
+    .loader {
+      width: 60px;
+      height: 60px;
+      border: 6px solid rgba(122, 162, 255, 0.3);
+      border-top-color: var(--brand);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto 30px;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--brand), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    p {
+      color: var(--text);
+      opacity: 0.8;
+      font-size: 18px;
+    }
+  </style>
 </head>
 <body>
-    <header class="site-header" style="position:fixed;top:0;left:0;right:0;display:flex;align-items:center;gap:12px;padding:12px 16px;background:transparent;z-index:120">
-        <a href="../index.html">
-            <img src="../assets/ames.gif" alt="Logo" style="width:44px;height:44px;">
-        </a>
-        <button class="nav-toggle" aria-label="قائمة" aria-expanded="false">☰</button>
-        <nav class="nav" style="margin-left:auto;">
-            <a href="../index.html">الرئيسية</a>
-            <a href="../store.html">المتجر</a>
-            <a href="../terms.html">الشروط والأحكام</a>
-            <a href="../about.html">من نحن</a>
-            <a href="../security-dashboard.html">🛡️ الحماية</a>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="loader"></div>
-        <h1>جاري تسجيل الدخول...</h1>
-        <p id="status-text">الرجاء الانتظار قليلاً</p>
-    </div>
+  <header class="site-header" style="position:fixed;top:0;left:0;right:0;display:flex;align-items:center;gap:12px;padding:12px 16px;background:transparent;z-index:120">
+    <a href="../index.html">
+      <img src="../assets/ames.gif" alt="Logo" style="width:44px;height:44px;">
+    </a>
+    <button class="nav-toggle" aria-label="قائمة" aria-expanded="false">☰</button>
+    <nav class="nav" style="margin-left:auto;">
+      <a href="../index.html">الرئيسية</a>
+      <a href="../store.html">المتجر</a>
+      <a href="../terms.html">الشروط والأحكام</a>
+      <a href="../about.html">من نحن</a>
+      <a href="../security-dashboard.html">🛡️ الحماية</a>
+    </nav>
+  </header>
 
-    <script>
-        // استخراج كود المصادقة أو الأخطاء من عنوان الرابط
-        const params = new URLSearchParams(window.location.search);
-        const code = params.get("code");
-        const error = params.get("error");
-        const statusText = document.getElementById("status-text");
+  <div class="container">
+    <div class="loader"></div>
+    <h1>جاري تسجيل الدخول...</h1>
+    <p id="status-text">الرجاء الانتظار قليلاً</p>
+  </div>
 
-        if (error) {
-            statusText.textContent = `حدث خطأ أثناء تسجيل الدخول: ${error}`;
-            console.error("OAuth Error:", error);
-        } else if (code) {
-            statusText.textContent = "تم استلام كود المصادقة، جاري التواصل مع Discord...";
-            console.log("Authorization code:", code);
+  <script>
+    // رابط السيرفر الخلفي (Backend)
+    const BACKEND_URL = "https://test-web-alpha-tawny.vercel.app/auth/callback.html"; // ⚠️ غيّره لرابط سيرفرك
 
-            // تحميل سكربت المصادقة وتشغيله
-            import("../assets/js/discord-auth.js")
-              .then(module => {
-                  console.log("✅ discord-auth.js loaded");
+    const params = new URLSearchParams(window.location.search);
+    const code = params.get("code");
+    const error = params.get("error");
+    const statusText = document.getElementById("status-text");
 
-                  if (typeof module.handleOAuthCallback === "function") {
-                      module.handleOAuthCallback(code);
-                  } else if (typeof handleOAuthCallback === "function") {
-                      handleOAuthCallback(code);
-                  } else {
-                      console.error("⚠️ لم يتم العثور على دالة handleOAuthCallback في السكربت.");
-                      statusText.textContent = "حدث خطأ أثناء معالجة تسجيل الدخول.";
-                  }
-              })
-              .catch(err => {
-                  console.error("Error loading auth script:", err);
-                  statusText.textContent = "تعذر تحميل سكربت المصادقة.";
-              });
-        } else {
-            statusText.textContent = "لم يتم استلام أي كود من Discord.";
-        }
-    </script>
-    <script src="../assets/js/nav.js" defer></script>
+    if (error) {
+      statusText.textContent = `حدث خطأ أثناء تسجيل الدخول: ${error}`;
+      console.error("OAuth Error:", error);
+    } else if (code) {
+      statusText.textContent = "تم استلام كود المصادقة، جاري التواصل مع Discord...";
+
+      // إرسال الكود للسيرفر لمعالجته
+      fetch(`${BACKEND_URL}/auth/discord/callback?code=${encodeURIComponent(code)}`)
+        .then(async res => {
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          console.log("✅ Response:", data);
+
+          if (data.success) {
+            statusText.textContent = "تم تسجيل الدخول بنجاح! 🎉";
+            // تحويل المستخدم إلى الصفحة الرئيسية أو صفحة الحساب
+            setTimeout(() => window.location.href = "../index.html", 2000);
+          } else {
+            statusText.textContent = "فشل تسجيل الدخول. يرجى المحاولة مجددًا.";
+          }
+        })
+        .catch(err => {
+          console.error("❌ Error:", err);
+          statusText.textContent = "حدث خطأ أثناء الاتصال بالسيرفر.";
+        });
+    } else {
+      statusText.textContent = "لم يتم استلام أي كود من Discord.";
+    }
+  </script>
+
+  <script src="../assets/js/nav.js" defer></script>
 </body>
 </html>
