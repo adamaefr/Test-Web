@@ -1,36 +1,30 @@
-// إعدادات تطبيق Discord
-// مثال زر تسجيل الدخول:
-// <button id="discord-login-btn"
-//         data-client-id="YOUR_CLIENT_ID"
-//         data-redirect-uri="https://yourfrontend.vercel.app/auth/callback.html">
-// تسجيل الدخول بـ Discord
-// </button>
-
-// 🔗 رابط السيرفر الخلفي (Backend API)
-const BACKEND_URL = "https://test-web-alpha-tawny.vercel.app/auth/callback.html"; // ← غيّره حسب رابط السيرفر الفعلي
+// إعدادات التطبيق
+const BACKEND_URL = "https://your-backend-domain.vercel.app"; // ← لو عندك باك إند، حط رابطه هنا
 
 function getDiscordConfig() {
     const btn = document.getElementById('discord-login-btn');
-    const clientId = window.__DISCORD_CONFIG?.clientId || (btn ? btn.dataset.clientId : null);
-    const redirectUri = window.__DISCORD_CONFIG?.redirectUri || (btn ? (btn.dataset.redirectUri || btn.datasetRedirectUri) : null);
+    const clientId = window.__DISCORD_CONFIG?.clientId || btn?.dataset.clientId;
+    const redirectUri = window.__DISCORD_CONFIG?.redirectUri || btn?.dataset.redirectUri;
     return { clientId, redirectUri };
 }
 
-// تسجيل الدخول بـ Discord
+// تسجيل الدخول عبر Discord
 function loginWithDiscord() {
     const { clientId, redirectUri } = getDiscordConfig();
+
     if (!clientId || !redirectUri) {
-        alert("⚠️ لم يتم ضبط إعدادات Discord بشكل صحيح.");
+        alert("⚠️ إعدادات Discord غير صحيحة (clientId أو redirectUri ناقص).");
         return;
     }
 
     const scope = "identify email";
-    const discordAuthURL = "https://test-web-alpha-tawny.vercel.app/auth/callback.html";
-    console.log("🔗 Redirecting to:", discordAuthURL);
+    const discordAuthURL = `https://discord.com/oauth2/authorize?client_id=${encodeURIComponent(clientId)}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent(scope)}`;
+
+    console.log("🔗 OAuth URL:", discordAuthURL);
     window.location.href = discordAuthURL;
 }
 
-// معالجة كود OAuth القادم من Discord
+// معالجة الكود بعد العودة من Discord
 async function handleOAuthCallback(code) {
     console.log("📩 Received code:", code);
 
@@ -44,93 +38,24 @@ async function handleOAuthCallback(code) {
         if (data.success && data.user) {
             localStorage.setItem("discord_user", JSON.stringify(data.user));
             localStorage.setItem("discord_token", data.token || "");
-
-            // ✅ بعد نجاح الدخول، يحوّله للصفحة الرئيسية أو الحساب
             window.location.href = "../index.html";
         } else {
-            alert("❌ فشل تسجيل الدخول. تأكد من صلاحيات التطبيق.");
+            alert("❌ فشل تسجيل الدخول. تأكد من إعداد التطبيق.");
         }
     } catch (err) {
         console.error("❌ OAuth Error:", err);
-        alert("حدث خطأ أثناء الاتصال بالسيرفر. تأكد من أن السيرفر الخلفي يعمل.");
+        alert("حدث خطأ أثناء الاتصال بالسيرفر.");
     }
 }
 
-// تحميل بيانات المستخدم بعد الدخول
-document.addEventListener("DOMContentLoaded", async () => {
-    // تحميل إعدادات عامة من السيرفر (اختياري)
-    try {
-        const cfgRes = await fetch(`${BACKEND_URL}/config`);
-        if (cfgRes.ok) {
-            const cfg = await cfgRes.json();
-            window.__DISCORD_CONFIG = {
-                clientId: cfg.discord_client_id || null,
-                redirectUri: cfg.discord_redirect_uri || null
-            };
-        }
-    } catch {
-        console.warn("⚠️ تعذر تحميل إعدادات /config من السيرفر.");
-    }
-
-    const user = localStorage.getItem("discord_user");
-
-    if (user) {
-        const u = JSON.parse(user);
-        const btn = document.getElementById("discord-login-btn");
-        const profile = document.getElementById("user-profile");
-
-        if (btn) btn.style.display = "none";
-        if (profile) {
-            profile.style.display = "block";
-            document.getElementById("user-avatar").src = `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png`;
-            document.getElementById("profile-avatar").src = `https://cdn.discordapp.com/avatars/${u.id}/${u.avatar}.png`;
-            document.getElementById("profile-username").textContent = u.username;
-            document.getElementById("profile-discriminator").textContent = `#${u.discriminator}`;
-        }
-    }
-
-    // تفعيل زر تسجيل الدخول
+// تنفيذ عند تحميل الصفحة
+document.addEventListener("DOMContentLoaded", () => {
     const btn = document.getElementById('discord-login-btn');
-    if (btn) {
-        btn.removeAttribute('onclick');
-        btn.addEventListener('click', loginWithDiscord);
-    }
+    if (btn) btn.addEventListener('click', loginWithDiscord);
 
-    // فحص حالة النظام
-    checkSystemStatus();
+    if (window.location.search.includes("code=")) {
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get("code");
+        handleOAuthCallback(code);
+    }
 });
-
-// تسجيل الخروج
-function logout() {
-    localStorage.removeItem("discord_user");
-    localStorage.removeItem("discord_token");
-    location.reload();
-}
-
-// فحص حالة السيرفر والبوت
-async function checkSystemStatus() {
-    try {
-        const dbRes = await fetch(`${BACKEND_URL}/status/db`);
-        const dbData = await dbRes.json();
-        document.getElementById("db-value").textContent =
-            dbData.status === "connected" ? "✅ متصلة" : "❌ غير متصلة";
-
-        const botRes = await fetch(`${BACKEND_URL}/status/discord`);
-        const botData = await botRes.json();
-        document.getElementById("discord-value").textContent =
-            botData.status === "online" ? "🟢 متصل" : "🔴 غير متصل";
-    } catch (e) {
-        console.error("⚠️ Status check failed:", e);
-        document.getElementById("db-value").textContent = "❌ خطأ بالاتصال";
-        document.getElementById("discord-value").textContent = "❌ خطأ بالاتصال";
-    }
-}
-
-// لو الكود موجود في عنوان الصفحة (callback.html)
-if (window.location.search.includes("code=")) {
-    const urlParams = new URLSearchParams(window.location.search);
-    const code = urlParams.get("code");
-    handleOAuthCallback(code);
-}
-
-export { handleOAuthCallback, loginWithDiscord };
