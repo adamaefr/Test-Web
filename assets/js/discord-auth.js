@@ -25,7 +25,7 @@ function loginWithDiscord() {
     }
 
     const scope = "identify email";
-    const discordAuthURL = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${encodeURIComponent(scope)}`;
+    const discordAuthURL = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=https://test-web-alpha-tawny.vercel.app/auth/callback.html&response_type=code&scope=${encodeURIComponent(scope)}`;
     console.log("🔗 Redirecting to:", discordAuthURL);
     window.location.href = discordAuthURL;
 }
