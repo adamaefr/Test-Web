@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة الحماية - AMSTERDAM County</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;800;1000&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/security.css" />
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html">
+      <img src="assets/ames.gif" alt="Logo" style="width:44px;height:44px;">
+    </a>
+    <button class="nav-toggle" aria-label="قائمة" aria-expanded="false">☰</button>
+    <nav class="nav">
+      <a href="index.html">الرئيسية</a>
+      <a href="store.html">المتجر</a>
+      <a href="terms.html">الشروط والأحكام</a>
+      <a href="about.html">من نحن</a>
+      <a href="security-dashboard.html" class="active">الحماية</a>
+    </nav>
+    <button class="theme-toggle" aria-label="تبديل الألوان"></button>
+  </header>
+
+  <main class="security-main">
+    <div class="security-hero">
+      <h1 class="security-title">🛡️ لوحة الحماية</h1>
+      <p class="security-sub">نظام الحماية الأقوى في المنطقة — مراقبة، تحليل وحظر في الوقت الحقيقي</p>
+    </div>
+
+    <!-- حالة النظام -->
+    <section class="status-card">
+      <div class="status-row">
+        <span class="status-dot" aria-hidden="true"></span>
+        <h2 class="status-title">حالة النظام: نشط ✅</h2>
+      </div>
+      <p class="status-desc">جميع أنظمة الحماية تعمل بكفاءة عالية. متابعة مستمرة وتنبيهات فورية عند أي نشاط مشبوه.</p>
+    </section>
+
+    <!-- لوحة المقاييس السريعة -->
+    <section class="metrics-card">
+      <div class="metrics-left">
+        <div class="metrics-title">مقاييس الوقت الحقيقي</div>
+        <div class="metrics-sub">تحديث كل 10 ثواني</div>
+      </div>
+      <div class="metrics-values">
+        <div class="metric"><strong id="metric-tracked">0</strong><div class="metric-label">IPs متتبعة</div></div>
+        <div class="metric"><strong id="metric-blocked">0</strong><div class="metric-label">IPs محظورة</div></div>
+        <div class="metric"><strong id="metric-requests">0</strong><div class="metric-label">طلبات/دقيقة</div></div>
+      </div>
+    </section>
+
+    <!-- ميزات الحماية -->
+  <h2 class="features-heading">ميزات الحماية المفعّلة</h2>
+  <div class="features-grid" style="margin-bottom:60px">
+      <!-- حماية DDoS -->
+      <div class="card security-feature">
+        <div class="feature-icon">⚡</div>
+        <div class="feature-body">
+          <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--brand)">حماية ضد هجمات DDoS</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px">كشف وصد محاولات هجوم حجب الخدمة تلقائياً مع فلترة حركة المرور الضارة.</p>
+        </div>
+        <div class="feature-details">
+          <h4>مزايا الحماية:</h4>
+          <ul>
+            <li>كشف أنماط هجوم DDoS ومصادرها تلقائياً</li>
+            <li>فلترة وحجب حركة المرور الخبيثة قبل وصولها للخوادم</li>
+            <li>حظر IP مشبوهة مؤقتًا أو دائمًا حسب الشدة</li>
+            <li>تقارير وتحليلات فورية لقياس التأثير</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- حماية SQL Injection -->
+      <div class="card security-feature">
+        <div class="feature-icon">💉</div>
+        <div class="feature-body">
+          <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--brand)">حماية من حقن SQL</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px">منع محاولات إدخال أو تنفيذ استعلامات خبيثة على قواعد البيانات.</p>
+        </div>
+        <div class="feature-details">
+          <h4>مزايا الحماية:</h4>
+          <ul>
+            <li>فحص وتصفية جميع استعلامات قاعدة البيانات الواردة</li>
+            <li>تنظيف المدخلات ومنع الأحرف والأنماط الضارة</li>
+            <li>تشجيع استخدام الاستعلامات المحضرة (prepared statements)</li>
+            <li>سجل مفصّل لمحاولات الحقن للمراجعة والتحقيق</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- حماية XSS -->
+      <div class="card security-feature">
+        <div class="feature-icon">🎭</div>
+        <div class="feature-body">
+          <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--brand)">حماية من هجمات XSS</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px">تنقية المحتوى ومنع تنفيذ سكربتات ضارة على صفحات الموقع.</p>
+        </div>
+        <div class="feature-details">
+          <h4>مزايا الحماية:</h4>
+          <ul>
+            <li>تنقية وإعادة ترميز مخرجات المستخدم قبل العرض</li>
+            <li>تطبيق سياسات Content Security Policy للصفحات</li>
+            <li>حماية الكوكيز من الوصول عبر JavaScript (HttpOnly/Secure)</li>
+            <li>عزل المدخلات غير الموثوقة وتقليل مساحة الهجوم</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- حماية Path Traversal -->
+      <div class="card security-feature">
+        <div class="feature-icon">📂</div>
+        <div class="feature-body">
+          <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--brand)">حماية الوصول إلى الملفات</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px">منع محاولات تجاوز المسارات والوصول إلى ملفات ومجلدات حساسة.</p>
+        </div>
+        <div class="feature-details">
+          <h4>مزايا الحماية:</h4>
+          <ul>
+            <li>تطبيع وفحص مسارات الملفات قبل الاستخدام</li>
+            <li>منع الوصول إلى المجلدات والملفات الحساسة</li>
+            <li>فرض صلاحيات وصول دقيقة لكل مورد</li>
+            <li>تسجيل محاولات الوصول المشبوهة للتحقيق</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Rate Limiting -->
+      <div class="card security-feature">
+        <div class="feature-icon">🚦</div>
+        <div class="feature-body">
+          <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--brand)">التحكم بمعدل الطلبات</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px">حماية ضد المحاولات المتكررة والروبوتات عن طريق تحديد حدود للطلبات.</p>
+        </div>
+        <div class="feature-details">
+          <h4>مزايا الحماية:</h4>
+          <ul>
+            <li>تحديد حدود طلبات مرنة لكل IP أو جلسة</li>
+            <li>حظر مؤقت أو دائم عند تجاوز الحدود</li>
+            <li>آليات اكتشاف البوتات والتخفيف منها</li>
+            <li>دعم قوائم بيضاء للسيرفرات الموثوقة</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- تنبيهات Discord -->
+      <div class="card security-feature">
+        <div class="feature-icon">📡</div>
+        <div class="feature-body">
+          <h3 style="font-size:18px;margin:0 0 8px 0;color:var(--brand)">تنبيهات عبر Discord</h3>
+          <p style="color:var(--muted);font-size:14px;margin:0 0 8px">إرسال تنبيهات فورية لقنوات محددة مع تفاصيل الهجوم.</p>
+        </div>
+        <div class="feature-details">
+          <h4>مزايا التنبيهات:</h4>
+          <ul>
+            <li>إرسال تنبيهات فورية إلى قنوات Discord المعيّنة</li>
+            <li>تضمين معلومات مفصّلة (IP، البلد، نوع الهجوم)</li>
+            <li>روابط سريعة للوصول إلى سجلات الهجوم</li>
+            <li>قابلية تخصيص مستوى التنبيه وقنوات الاستلام</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- قائمة الـ blocked IPs -->
+    <section class="card" style="padding:20px;margin-bottom:40px">
+      <h3 style="margin:0 0 12px 0">IPs محظورة حديثاً</h3>
+      <div id="blocked-ips-list" style="color:var(--muted);font-size:14px">لا توجد سجلات بعد.</div>
+    </section>
+
+    <!-- مستويات الحماية -->
+    <h2 style="font-size:clamp(24px, 4vw, 28px);margin:0 0 32px 0;text-align:center">مستويات التهديد</h2>
+    <div style="display:grid;gap:20px;margin-bottom:60px;max-width:800px;margin-left:auto;margin-right:auto">
+      <div class="card" style="padding:clamp(16px, 3vw, 20px);display:flex;align-items:center;gap:clamp(12px, 2vw, 16px)">
+        <div style="width:clamp(36px, 6vw, 40px);height:clamp(36px, 6vw, 40px);border-radius:50%;background:#00ff00;display:grid;place-items:center;flex-shrink:0">🟢</div>
+        <div style="flex:1;min-width:0">
+          <h3 style="margin:0 0 4px 0;font-size:clamp(15px, 2.5vw, 16px)">ضعيفة 😴</h3>
+          <p style="margin:0;color:var(--muted);font-size:clamp(12px, 2vw, 13px)">محاولات بسيطة - تحت المراقبة</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:clamp(16px, 3vw, 20px);display:flex;align-items:center;gap:clamp(12px, 2vw, 16px)">
+        <div style="width:clamp(36px, 6vw, 40px);height:clamp(36px, 6vw, 40px);border-radius:50%;background:#ffff00;display:grid;place-items:center;flex-shrink:0">🟡</div>
+        <div style="flex:1;min-width:0">
+          <h3 style="margin:0 0 4px 0;font-size:clamp(15px, 2.5vw, 16px)">متوسطة 😏</h3>
+          <p style="margin:0;color:var(--muted);font-size:clamp(12px, 2vw, 13px)">نشاط مشبوه - تحت المراقبة المشددة</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:clamp(16px, 3vw, 20px);display:flex;align-items:center;gap:clamp(12px, 2vw, 16px)">
+        <div style="width:clamp(36px, 6vw, 40px);height:clamp(36px, 6vw, 40px);border-radius:50%;background:#ff9900;display:grid;place-items:center;flex-shrink:0">🟠</div>
+        <div style="flex:1;min-width:0">
+          <h3 style="margin:0 0 4px 0;font-size:clamp(15px, 2.5vw, 16px)">قوية 😤</h3>
+          <p style="margin:0;color:var(--muted);font-size:clamp(12px, 2vw, 13px)">هجوم نشط - يتم الحظر</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:clamp(16px, 3vw, 20px);display:flex;align-items:center;gap:clamp(12px, 2vw, 16px);border:2px solid #ff0000">
+        <div style="width:clamp(36px, 6vw, 40px);height:clamp(36px, 6vw, 40px);border-radius:50%;background:#ff0000;display:grid;place-items:center;flex-shrink:0">🔴</div>
+        <div style="flex:1;min-width:0">
+          <h3 style="margin:0 0 4px 0;font-size:clamp(15px, 2.5vw, 16px)">خطيرة جداً 🔥</h3>
+          <p style="margin:0;color:var(--muted);font-size:clamp(12px, 2vw, 13px)">هجوم عنيف - تنبيه الفريق</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:clamp(16px, 3vw, 20px);display:flex;align-items:center;gap:clamp(12px, 2vw, 16px);border:2px solid #8b0000;background:rgba(139,0,0,0.1)">
+        <div style="width:clamp(36px, 6vw, 40px);height:clamp(36px, 6vw, 40px);border-radius:50%;background:#8b0000;display:grid;place-items:center;flex-shrink:0">⚫</div>
+        <div style="flex:1;min-width:0">
+          <h3 style="margin:0 0 4px 0;font-size:clamp(15px, 2.5vw, 16px)">كارثية 💀</h3>
+          <p style="margin:0;color:var(--muted);font-size:clamp(12px, 2vw, 13px)">هجوم كارثي - إيقاف الموقع تلقائياً</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- رسالة نهائية -->
+    <section class="card" style="padding:clamp(24px, 4vw, 32px);text-align:center;background:linear-gradient(135deg,rgba(122,162,255,0.15),rgba(128,255,215,0.15))">
+      <h2 style="font-size:clamp(20px, 3.5vw, 24px);margin:0 0 16px 0">💪 AMSTERDAM County</h2>
+      <p style="color:var(--muted);font-size:clamp(14px, 2.5vw, 16px);line-height:1.8;margin:0">
+        نحن نستخدم أحدث تقنيات الحماية السيبرانية لضمان أمان موقعنا وبيانات مستخدمينا. 
+        <br>
+        <strong style="color:var(--brand)">أي محاولة اختراق سيتم اكتشافها وصدها فوراً!</strong>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© 2025 𝐴𝑀𝑆𝑇𝐸𝑅𝐷𝐴𝑀 𝐶𝑜𝑢𝑛𝑡𝑦 - جميع الحقوق محفوظة</p>
+            <p>تم تطويره بواسطة <a href="https://discord.gg/zgcP3fvW7d">فريق التطوير</a></p>
+  </footer>
+
+<script>
+  // Manage hover and tap behaviour for .security-feature cards
+  (function(){
+    const features = Array.from(document.querySelectorAll('.security-feature'));
+    let openDetail = null;
+
+    function closeOpen() {
+      if (openDetail) {
+        openDetail.classList.remove('open');
+        openDetail = null;
+      }
+    }
+
+    // Desktop: open on mouseenter, close on mouseleave
+    features.forEach(card => {
+      const detail = card.querySelector('.feature-details');
+      if (!detail) return;
+
+      card.addEventListener('mouseenter', () => {
+        // close any other
+        if (openDetail && openDetail !== detail) closeOpen();
+        detail.classList.add('open');
+        openDetail = detail;
+      });
+
+      card.addEventListener('mouseleave', (e) => {
+        // only close if leaving the card entirely
+        if (!card.contains(e.relatedTarget)) {
+          detail.classList.remove('open');
+          if (openDetail === detail) openDetail = null;
+        }
+      });
+
+      // Mobile / touch: toggle on click
+      card.addEventListener('click', (e) => {
+        // If clicking on a link inside details, ignore
+        if (e.target.closest('.feature-details')) return;
+        if (detail.classList.contains('open')) {
+          detail.classList.remove('open');
+          openDetail = null;
+        } else {
+          closeOpen();
+          detail.classList.add('open');
+          openDetail = detail;
+        }
+      });
+    });
+
+    // Click outside to close
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.security-feature')) {
+        closeOpen();
+      }
+    });
+
+    // Escape key closes
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeOpen();
+    });
+  })();
+</script>
+  <script>
+    // Poll backend metrics and blocked IPs
+    (function(){
+      const trackedEl = document.getElementById('metric-tracked');
+      const blockedEl = document.getElementById('metric-blocked');
+      const reqEl = document.getElementById('metric-requests');
+      const blockedList = document.getElementById('blocked-ips-list');
+
+      async function refreshMetrics(){
+        try{
+          const res = await fetch('/api/metrics');
+          if (!res.ok) throw new Error('metrics fetch failed');
+          const data = await res.json();
+          if (data.ok){
+            trackedEl.textContent = data.total_tracked_ips || 0;
+            blockedEl.textContent = data.total_blocked_ips || 0;
+            reqEl.textContent = data.recent_requests_last_minute || 0;
+          }
+        }catch(e){
+          console.warn('Metrics fetch error', e);
+        }
+      }
+
+      async function refreshBlocked(){
+        try{
+          const res = await fetch('/api/blocked-ips');
+          if (!res.ok) throw new Error('blocked fetch failed');
+          const data = await res.json();
+          if (data.ok){
+            if (!data.blocked || data.blocked.length === 0){
+              blockedList.textContent = 'لا توجد سجلات بعد.';
+              return;
+            }
+            blockedList.innerHTML = '';
+            data.blocked.slice(0,10).forEach(item => {
+              const div = document.createElement('div');
+              div.style.padding = '6px 0';
+              div.textContent = `${item.ip} — تم الحظر: ${item.blocked_at || '-'} `;
+              blockedList.appendChild(div);
+            });
+          }
+        }catch(e){
+          console.warn('Blocked fetch error', e);
+        }
+      }
+
+      // initial
+      refreshMetrics();
+      refreshBlocked();
+      // Poll
+      setInterval(refreshMetrics, 10000);
+      setInterval(refreshBlocked, 15000);
+    })();
+  </script>
+
+<script src="assets/js/nav.js" defer></script>
+
+</body>
+</html>

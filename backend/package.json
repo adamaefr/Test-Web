@@ -1,0 +1,17 @@
+{
+  "name": "megz-web-bot",
+  "version": "1.0.0",
+  "description": "Simple Discord bot for AMSTERDAM County - reads env and queries backend status",
+  "main": "bot.js",
+  "engines": {
+    "node": ">=16"
+  },
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.13.0",
+    "node-fetch": "^2.6.7",
+    "dotenv": "^16.3.1"
+  }
+}

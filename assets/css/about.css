@@ -1,0 +1,37 @@
+/* Styles for About page team cards and overlays */
+.team-wrap { display:flex;justify-content:center;gap:20px;flex-wrap:wrap;max-width:1100px;margin:0 auto }
+.team-card { padding:24px;display:grid;gap:12px;place-items:center;width:190px;position:relative;overflow:visible;cursor:pointer;outline:none }
+.team-card .avatar { width:110px;height:110px;border-radius:50%;overflow:hidden;border:3px solid var(--brand);box-shadow:0 8px 20px rgba(122,162,255,0.18);background:linear-gradient(135deg,rgba(122,162,255,0.06),rgba(128,255,215,0.04)) }
+.team-card .avatar img { width:100%;height:100%;object-fit:cover;display:block }
+.team-card strong { font-size:inherit }
+.team-card .muted { color:var(--muted);font-size:inherit }
+
+/* overlay */
+.member-overlay { position:absolute;left:50%;top:100%;transform:translate(-50%,8px);min-width:220px;max-width:320px;background:var(--surface, #000000);border-radius:12px;box-shadow:0 10px 30px rgba(18,23,36,0.12);border:1px solid rgba(18,23,36,0.06);opacity:0;pointer-events:none;transition:opacity 180ms ease, transform 180ms ease;z-index:40;padding:0 }
+.team-card:hover .member-overlay,
+.team-card.overlay-open .member-overlay { opacity:1;pointer-events:auto;transform:translate(-50%,14px) }
+.member-overlay .overlay-content { padding:16px;text-align:center }
+.member-overlay .overlay-content .name { font-weight:800;margin-bottom:6px }
+.member-overlay .overlay-content .role { color:var(--muted);font-size:13px }
+
+@media (max-width:720px){
+  .member-overlay { left:50%;top:50%;transform:translate(-50%,-50%);min-width:80%;max-width:90%; }
+  .team-wrap { gap:14px }
+}
+
+/* Small focus styles for accessibility */
+.team-card:focus { box-shadow:0 6px 18px rgba(122,162,255,0.12);border-radius:12px }
+
+/* Override global .card sizing for stats and values sections on About page */
+.stats-section .card, .values-section .card {
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+}
+.stats-section .card p, .values-section .card p {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+

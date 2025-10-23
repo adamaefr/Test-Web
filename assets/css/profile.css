@@ -1,0 +1,21 @@
+/* Profile Dropdown Styles */
+#profile-dropdown.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Responsive Profile */
+@media (max-width: 768px) {
+  #profile-dropdown {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    min-width: 90% !important;
+    max-width: 90% !important;
+  }
+  
+  #profile-dropdown.show {
+    transform: translate(-50%, -50%) !important;
+  }
+}

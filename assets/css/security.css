@@ -1,0 +1,61 @@
+/* Security dashboard styles */
+.security-main{padding:40px 20px;min-height:calc(100vh - 70px);max-width:1200px;margin:0 auto}
+.security-hero{text-align:center;margin-bottom:40px}
+.security-title{margin:0 0 8px 0;font-weight:800;background:linear-gradient(135deg,var(--brand),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.security-sub{color:var(--muted)}
+
+.status-card{padding:clamp(20px,3vw,28px);margin-bottom:28px;border-radius:12px;background:linear-gradient(135deg,rgba(122,162,255,0.08),rgba(128,255,215,0.06));border:1px solid rgba(122,162,255,0.08)}
+.status-row{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.status-dot{width:14px;height:14px;border-radius:50%;background:var(--accent);display:inline-block;animation:pulse 2s infinite}
+.status-title{margin:0;font-size:clamp(18px,3vw,22px)}
+.status-desc{color:var(--muted);margin:8px 0 0 0}
+
+.metrics-card{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;margin-bottom:24px;border-radius:12px;background:var(--glass);border:1px solid rgba(255,255,255,0.04)}
+.metrics-left{display:flex;flex-direction:column}
+.metrics-title{font-weight:800}
+.metrics-sub{color:var(--muted)}
+.metrics-values{display:flex;gap:18px;align-items:center}
+.metric{display:flex;flex-direction:column;align-items:center}
+.metric strong{font-size:20px}
+.metric-label{font-size:12px;color:var(--muted)}
+
+.features-heading{text-align:center;font-size:clamp(22px,4vw,28px);margin:0 0 28px 0}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;margin-bottom:40px;align-items:start}
+.card.security-feature{position:relative;display:flex;flex-direction:row;align-items:flex-start;gap:12px;padding:16px;border-radius:12px;transition:transform .18s ease,box-shadow .18s ease;cursor:pointer;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.04)}
+.card.security-feature:hover{transform:translateY(-6px);box-shadow:0 18px 42px rgba(122,162,255,0.08)}
+.feature-icon{width:64px;height:64px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));font-size:28px;flex-shrink:0}
+.feature-body{flex:1;min-width:0}
+.feature-body h3{margin:0 0 6px 0;font-size:18px;color:var(--brand)}
+.feature-body p{margin:0;color:var(--muted);font-size:14px}
+
+/* popover/details */
+.feature-details{position:absolute;left:50%;top:100%;transform:translateX(-50%) translateY(12px);background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(18,23,36,0.06);border-radius:12px;padding:14px 18px;min-width:260px;max-width:360px;box-shadow:0 8px 24px rgba(0,0,0,0.12);opacity:0;visibility:hidden;transition:opacity .18s ease,transform .18s ease;z-index:140;pointer-events:none}
+.feature-details.open{opacity:1;visibility:visible;transform:translateX(-50%) translateY(6px);pointer-events:auto}
+.feature-details h4{margin:0 0 8px 0;color:var(--accent);font-size:14px;font-weight:700}
+.feature-details ul{margin:0;padding-right:16px;color:var(--muted);font-size:13px;line-height:1.8}
+.feature-details li{margin-bottom:6px}
+
+.card.security-feature h3,.card.security-feature p{word-break:normal;overflow-wrap:break-word}
+
+@media (max-width:768px){
+  .card.security-feature{flex-direction:column;align-items:flex-start}
+  .feature-icon{width:48px;height:48px}
+  .feature-details{position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:92%;max-width:520px;min-width:0;z-index:160;padding-bottom:calc(env(safe-area-inset-bottom,0) + 12px)}
+  .card.security-feature:hover{transform:none;box-shadow:none}
+}
+
+/* blocked list */
+#blocked-ips-list{color:var(--muted);font-size:14px}
+
+/* threat levels */
+.threat-grid{display:grid;gap:20px;max-width:800px;margin:0 auto 40px}
+.threat-grid .card{display:flex;align-items:center;gap:16px;padding:16px}
+.threat-dot{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;flex-shrink:0}
+
+/* final message */
+.security-main .card{text-align:center}
+
+@media (max-width:900px){
+  .metrics-card{flex-direction:column;align-items:flex-start}
+  .metrics-values{gap:12px}
+}
