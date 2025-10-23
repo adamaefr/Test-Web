@@ -8,6 +8,12 @@ function getDiscordConfig() {
     return { clientId, redirectUri };
 }
 
+<button id="discord-login-btn"
+    data-client-id="1423445671867977880"
+    data-redirect-uri="https://test-web-alpha-tawny.vercel.app/auth/callback.html">
+    تسجيل الدخول بـ Discord
+</button>
+
 // تسجيل الدخول عبر Discord
 function loginWithDiscord() {
     const { clientId, redirectUri } = getDiscordConfig();
