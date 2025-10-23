@@ -19,8 +19,8 @@ const db = await mysql.createConnection({
 
 // إعدادات Discord OAuth2
 const DISCORD_CLIENT_ID = "1423445671867977880";
-const DISCORD_CLIENT_SECRET = "YcFkRJDx6JR8QgFLp_Y-AyDB6exAa7aV";
-const REDIRECT_URI = "https://test-web-alpha-tawny.vercel.app/auth/discord/callback"; // غيّرها لو عندك موقع حقيقي
+const DISCORD_CLIENT_SECRET = "uJJ4JY0rEKO4-nyWGzRwQmVfzHWUihDf";
+const REDIRECT_URI = "https://test-web-alpha-tawny.vercel.app/auth/callback.html"; // غيّرها لو عندك موقع حقيقي
 
 // 🔹 تبادل الكود بالـ access_token
 app.post("/exchange", async (req, res) => {
@@ -103,5 +103,6 @@ app.get("/status/discord", async (req, res) => {
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`🚀 Server running at http://localhost:${PORT}`));
+
 
 
