@@ -20,13 +20,13 @@ DB_CONFIG = {
     'database': os.environ.get('DB_NAME', 's254_AMSTERDAM')
 }
 
-DISCORD_WEBHOOK = os.environ.get('DISCORD_WEBHOOK')
-ROLE_MENTION = os.environ.get('DISCORD_ROLE_MENTION', '')
+DISCORD_WEBHOOK = os.environ.get('https://discord.com/api/webhooks/1431013525513572483/v1OKxaSlqomR6KO72Jd4wyBI-eqZQaCVL313gRlhbwKAWOBL0bM4hmViNw052KOJU7ig')
+ROLE_MENTION = os.environ.get('1430989606219944038', '1430989611978461296')
 LOGO_URL = os.environ.get('LOGO_URL', 'https://your-domain.com/assets/ames.gif')
-DISCORD_CLIENT_ID = os.environ.get('DISCORD_CLIENT_ID')
-DISCORD_CLIENT_SECRET = os.environ.get('DISCORD_CLIENT_SECRET')
-DISCORD_BOT_TOKEN = os.environ.get('DISCORD_BOT_TOKEN')
-DISCORD_REDIRECT_URI = os.environ.get('DISCORD_REDIRECT_URI')
+DISCORD_CLIENT_ID = os.environ.get('1423445671867977880')
+DISCORD_CLIENT_SECRET = os.environ.get('Fx0lC94E8ZPdESek0F4tl15Hw4aWbgld')
+DISCORD_BOT_TOKEN = os.environ.get('MTQyMzQ0NTY3MTg2Nzk3Nzg4MA.GueCMm.a8EeqxCusGIgxG4oBbzTu5c6Q4O5VxyaUN65zI')
+DISCORD_REDIRECT_URI = os.environ.get('https://test-web-alpha-tawny.vercel.app/')
 
 # تتبع الطلبات
 request_tracker = {}
@@ -481,5 +481,6 @@ def serve_static(path):
 if __name__ == "__main__":
     connect_db()
     app.run(host="0.0.0.0", port=5000, debug=True)
+
 
 
