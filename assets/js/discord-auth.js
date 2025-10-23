@@ -22,7 +22,7 @@ function loginWithDiscord() {
         return;
     }
     const scope = 'identify email';
-    const url = "https://test-web-alpha-tawny.vercel.app/js/discord-auth.js";
+    const url = "https://test-web-alpha-tawny.vercel.app/auth/callback.html";
     window.location.href = url;
 }
 
